@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/ng2-ADWebAPI/packages
+/ng2-ADWebAPI/ng2-ADWebAPI/bin
+/ng2-ADWebAPI/ng2-ADWebAPI/obj
+/ng2-ADWebAPI/.vs
+/ng2-ADWebAPI/ng2-ADWebAPI/web.config

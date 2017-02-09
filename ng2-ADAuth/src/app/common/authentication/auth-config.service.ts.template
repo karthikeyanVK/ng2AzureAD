@@ -1,0 +1,20 @@
+import { Injectable } from '@angular/core';
+
+@Injectable()
+export class AuthConfigService {
+
+  constructor() { }
+  public get adalConfig(): any {
+    var endpoints = {
+      // Map the location of a request to an API to a the identifier of the associated resource for testing in local
+      "http://localhost:25476": "Enter App ID URI from the Azure Portal   https://contoso.onmicrosoft.com/TodoListService",
+    }
+    return {
+      instance: 'https://login.microsoftonline.com/',
+      tenant: 'Enter tenant name, e.g. contoso.onmicrosoft.com',
+      clientId: 'Client id of the client app eg.. 9c11a02f-da5f-4440-bce3-5cfb63d17afe',
+      extraQueryParameter: 'nux=1',
+      endpoints: endpoints,
+    };
+  }
+}
