@@ -7,6 +7,10 @@
  - Visual Studio 2015
  - An Azure subscription
  - Create Azure AD from your azure subscriptions. 
+ - Node Js installed
+ - ng-cli installed in your system globally.
+ - 
+ 
 
 # Step 1: Clone or download this repository
 
@@ -39,14 +43,11 @@ From your Visual studio or command line: git clone https://github.com/karthikeya
   enter the base URL for the sample, which is by default `https://localhost:4200`.
 
 3.  Click on **Create** to create the application.
-4.  Navigate to the SampleWebAPI and then change the APP ID URI, enter https://<your_tenant_name>/TodoListService,
-     replacing **<your_tenant_name>** with the name of your Azure AD tenant. We will use https://contoso.onmicrosoft.com/TodoListService
-        ![Update A P P Id](screenshots/UpdateAPPId.png)
-5.   Save the Changes
-6.   While still in the Azure portal, choose your application, click on **Settings** and choose **Properties**.
-7.   Find the Application ID value and copy it to the clipboard.
-8.   Configure Permissions for your application - in the Settings menu, choose the 'Required permissions' section, click on **Add**, then **Select an API**, and type "SampleWebAPI" in the text box. Then, click on  **Select Permissions** and select 'Access SampleWebAPI'
-9.   Grant permissions across your tenant for your application. Go to Settings -> Properties -> Required Permissions, and click on the **Grant Permissions** button in the top bar. Click **Yes** to confirm.
+4.   Save the Changes
+5.   While still in the Azure portal, choose your application, click on **Settings** and choose **Properties**.
+6.   Find the Application ID value and copy it to the clipboard.
+7.   Configure Permissions for your application - in the Settings menu, choose the 'Required permissions' section, click on **Add**, then **Select an API**, and type "SampleWebAPI" in the text box. Then, click on  **Select Permissions** and select 'Access SampleWebAPI'
+8.   Grant permissions across your tenant for your application. Go to Settings -> Properties -> Required Permissions, and click on the **Grant Permissions** button in the top bar. Click **Yes** to confirm.
  ![Grant Permission](screenshots/GrantPermission.png)
 
  Alternatively you can use old portal to give permission find the application in the directory -> Click on Add Application -> Search and then add delegated permissions as below.
@@ -70,7 +71,9 @@ From your Visual studio or command line: git clone https://github.com/karthikeya
 
 ## Step 7: Configure Angular 2 APP
 
-
+1. Navigate to `ng2-ADAuth` application in command prompt or git bash and run `npm install`
+2. Rename  `ng2-ADAuth/src/app/common/authentication/auth-config.service.ts.template` to `ng2-ADAuth/src/app/common/authentication/auth-config.service.ts`
+3. 
  
 
 
