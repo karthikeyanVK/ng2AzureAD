@@ -5,7 +5,7 @@
 # Prerequisities
 
  - Visual Studio 2015
- - An Azure subscription
+ - An Azure subscription(free is fine)
  - Create Azure AD from your azure subscriptions. 
  - Node Js installed
  - ng-cli installed in your system globally.
@@ -48,9 +48,11 @@ From your Visual studio or command line: git clone https://github.com/karthikeya
 6.   Find the Application ID value and copy it to the clipboard.
 7.   Configure Permissions for your application - in the Settings menu, choose the 'Required permissions' section, click on **Add**, then **Select an API**, and type "SampleWebAPI" in the text box. Then, click on  **Select Permissions** and select 'Access SampleWebAPI'
 8.   Grant permissions across your tenant for your application. Go to Settings -> Properties -> Required Permissions, and click on the **Grant Permissions** button in the top bar. Click **Yes** to confirm.
- ![Grant Permission](screenshots/GrantPermission.png)
-
- Alternatively you can use old portal to give permission find the application in the directory -> Click on Add Application -> Search and then add delegated permissions as below.
+    ![Grant Permission](screenshots/GrantPermission.png)
+ 
+  **IF GRANT PERMISSION NOT WORKING IN NEW PORTAL**
+ 
+ Searching and selecting the other application in new portal (eg:-SampleWebAPI)is fuzzy and slow, Alternatively you can use old portal to give permission find the application in the directory -> Click on Add Application -> Search and then add delegated permissions as below.
 
 ![Search Server](screenshots/SearchServer.png)
 ![Assign Permission](screenshots/AssignPermission.png)
@@ -72,9 +74,12 @@ From your Visual studio or command line: git clone https://github.com/karthikeya
 ## Step 7: Configure Angular 2 APP
 
 1. Navigate to `ng2-ADAuth` application in command prompt or git bash and run `npm install`
-2. Rename  `ng2-ADAuth/src/app/common/authentication/auth-config.service.ts.template` to `ng2-ADAuth/src/app/common/authentication/auth-config.service.ts`
-3. 
- 
+2. npm install will install the angular based ad js library known as ng2-adal and angular2-adal
+3. Rename  `ng2-ADAuth/src/app/common/authentication/auth-config.service.ts.template` to `ng2-ADAuth/src/app/common/authentication/auth-config.service.ts`
+4. Make sure you add endpoints, tenant, clientId as example provided in `auth-config.service.ts` 
+
+## Set 8: Use AuthHttp instead of http to access Web API
+
 
 
 
