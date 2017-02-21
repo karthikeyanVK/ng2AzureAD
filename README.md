@@ -9,7 +9,7 @@
  - Create Azure AD from your azure subscriptions. 
  - Node Js installed
  - ng-cli installed in your system globally.
- - 
+ 
  
 
 # Step 1: Clone or download this repository
@@ -78,9 +78,38 @@ From your Visual studio or command line: git clone https://github.com/karthikeya
 3. Rename  `ng2-ADAuth/src/app/common/authentication/auth-config.service.ts.template` to `ng2-ADAuth/src/app/common/authentication/auth-config.service.ts`
 4. Make sure you add endpoints, tenant, clientId as example provided in `auth-config.service.ts` 
 
-## Set 8: Use AuthHttp instead of http to access Web API
+### Step 8: Publish the AngularWebAPP to Azure Web Sites
 
+1. Switch to Visual Studio and go to the AngularWebAPP project.  Right click on the project in the Solution Explorer and select Publish.  Click Import, and import the AngularWebAPP publish profile you downloaded.
+6. On the Connection tab, update the Destination URL to https**(only https is supported for external url's)** , for example https://AngularWebAPP-contoso.azurewebsites.net.  Click Next.
+7. On the Settings tab, make sure Enable Organizational Authentication is NOT selected.  Click Publish.
+8. Visual Studio will publish the project and automatically open a browser to the URL of the project.  If you see the default web page of the project, the publication was successful.
 
+### Step 9: Update the To Do SPA Configuration in the Directory Tenant
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. On the top bar, click on your account and under the **Directory** list, choose your Active Directory tenant.
+2. Click on **More Services** in the left hand nav, and choose **Azure Active Directory**.
+3. Click on **App registrations** and select the To Do SPA application.
+4. Go to **Settings** --> **Properties**, and update the Sign-On URL to the address of your SPA, for example https://TodoListService-contoso.azurewebsites.net.
+5. Go to **Settings** --> **Reply URLs** and update the Reply URL field to the address of your SPA, for example https://TodoListService-contoso.azurewebsites.net.
+
+## About the Code
+
+1. When accessing web API Use the AuthHttpModule instead of angular http module, which will take care of adding the bearer token into the request that goes from the web application( refer`ng2-ADAuth/src/app/home/home.component.ts
+`)
+2. `authenticatorGuard.guard` is used for validating the AD routing in angular.
+3. Import `import { AdalService } from "ng2-adal/services/adal.service";`, `import { AuthConfigService } from './common/authentication/auth-config.service'`,`import { AuthenticatorGuard } from './common/authentication/authenticatorGuard.guard';` into `app.module.ts`
+4. We use `ng2-Adal` for the AD connectity functionality in angular app.
+5. Install below nugget packages to Web API Project
+`            PM> Install-Package Microsoft.Owin.Security.ActiveDirectory`
+`             PM> Install-Package Microsoft.Owin.Host.SystemWeb`
+6. Add Owin Startup Class as below to App_Start as in ` ng2AzureAD/ng2-ADWebAPI/ng2-ADWebAPI/App_Start/Startup.cs
+`
+7. Add [Authorize] attribute to ValuesController on class level.
+8. Enable Cors `config.EnableCors(cors)` as in ` ng2AzureAD/ng2-ADWebAPI/ng2-ADWebAPI/App_Start/WebApiConfig.cs
+` 
+ 
 
 
 
